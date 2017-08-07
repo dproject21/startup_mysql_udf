@@ -8,11 +8,14 @@ import (
 func TestExec(t *testing.T) {
 	testCases := []struct {
 		desc string
-		in   []string
-		want string
+		in   string
 	}{
-		{"OSコマンドの実行", []string{"hostname"}, "mbp2015.local\n"},
-		{"OSコマンドの実行", []string{"ls", "-la"}, "test"},
+		{"OSコマンドの実行", "hostname"},
+		{"OSコマンドの実行", "ls -la"},
+		{"OSコマンドの実行", "touch test.txt"},
+		{"OSコマンドの実行", "ls -la"},
+		{"OSコマンドの実行", "rm -f test.txt"},
+		{"OSコマンドの実行", "ls -la"},
 	}
 	for _, test := range testCases {
 		out, err := Exec(test.in)
