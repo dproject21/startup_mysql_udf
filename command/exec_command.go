@@ -5,8 +5,8 @@ import (
 	"os/exec"
 )
 
-func Exec(args string) (string, error) {
-	out, err := exec.Command(args).Output()
+func Exec(cmd string) (string, error) {
+	out, err := exec.Command(cmd).Output()
 	if err != nil {
 		fmt.Println(err)
 	}
